@@ -14,20 +14,15 @@ public class UserQuestions {
         throw new RuntimeException(IMPOSIBLE_INSTANCIAR.getMensaje());
     }
 
-    public static Question<List<User>> allTheExpectedUsers () {
-        return actor -> {
-            List<User> users = SerenityRest.lastResponse()
-                    .jsonPath()
-                    .getList("data", User.class);
-            return users;
-        };
+    public static Question<List<User>> allTheExpectedUsers() {
+        return actor -> SerenityRest.lastResponse()
+                .jsonPath()
+                .getList("data", User.class);
     }
 
-    public static Question<String> theExpectedUser () {
-        return actor -> {
-            return SerenityRest.lastResponse()
-                    .jsonPath()
-                    .getString("id");
-        };
+    public static Question<String> theExpectedUser() {
+        return actor -> SerenityRest.lastResponse()
+                .jsonPath()
+                .getString("id");
     }
 }

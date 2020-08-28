@@ -15,7 +15,7 @@ public class UserTasks {
         throw new RuntimeException(IMPOSIBLE_INSTANCIAR.getMensaje());
     }
 
-    public static Performable findAnUserWithId(int id) {
+    public static Performable findUserById(int id) {
         return Task.where("{0} fetches the user with id #id",
                 Get.resource("/users/{id}")
                         .with( request -> request.pathParam("id", id))
@@ -28,7 +28,7 @@ public class UserTasks {
         );
     }
 
-    public static Performable addAnUserwith(String firstName, String lastName) {
+    public static Performable addUser(String firstName, String lastName) {
         User newUser = new User(firstName, lastName);
         return Task.where("{0} fetches the user with id #id",
                 Post.to("/users")

@@ -20,7 +20,7 @@ public class WhenManagingUsers {
 
     @When("she/he find a user with id {int}")
     public void findAUserWithId(int id) {
-        theActorInTheSpotlight().attemptsTo(findAnUserWithId(id));
+        theActorInTheSpotlight().attemptsTo(findUserById(id));
     }
 
     @Then("user whit first name {string} and last name {string} should be correct")
@@ -51,11 +51,11 @@ public class WhenManagingUsers {
 
     @When("add a user with first name {string} and last name {string}")
     public void addUserWith(String firstName, String lastName) {
-        theActorInTheSpotlight().attemptsTo(addAnUserwith(firstName, lastName));
+        theActorInTheSpotlight().attemptsTo(addUser(firstName, lastName));
     }
 
-    @Then("the user with first name {string} and last name {string} was saved correctly")
-    public void theUserWithFirstAndLastNameWasSavedCorrectly(String firstName, String lastName) {
+    @Then("the user was saved correctly")
+    public void theUserWasSavedCorrectly() {
         theActorInTheSpotlight().should(
                 seeThat("the user with first and last name was saved correctly",
                         theExpectedUser(), not(isEmptyString()))

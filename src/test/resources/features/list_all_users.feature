@@ -6,6 +6,7 @@ Feature: list all users information
     Then response status code is 200
     And all 6 the expected users should be returned
 
+#    failed scenario
   Scenario: list all users
     When he list all users
     Then response status code is 200
